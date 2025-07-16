@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Людмила Антоненко | Коуч по найму и управлению командой</title>
+    <meta name="description" content="Профессиональные услуги по управлению проектами, продуктами, найму и развитию команд. Создам эффективную команду и выстрою рабочие процессы в вашем бизнесе.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Применение кастомных шрифтов и общих стилей */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /*-gray-950 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #FBBF24, #D97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .recommended-card-glow {
+            box-shadow: 0 0 40px -10px rgba(251, 191, 36, 0.4);
+        }
+        
+        /* Стили для анимации появления */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HEADER -->
+    <header id="header" class="bg-gray-950/70 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-xl font-bold text-white">Людмила Антоненко</a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Услуги</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-amber-400 transition-colors">Тарифы</a>
+                    <a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">Почему я?</a>
+                    <a href="#testimonials" class="text-gray-400 hover:text-amber-400 transition-colors">Отзывы</a>
+                    <a href="#contact" class="text-gray-400 hover:text-amber-400 transition-colors">Контакты</a>
+                </nav>
+                
+                <a href="#contact" class="hidden md:inline-block bg-amber-500 text-gray-900 font-bold py-2 px-5 rounded-lg hover:bg-amber-400 transition-all hover:scale-105">
+                    Обсудить проект
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+            <a href="#services" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Услуги</a>
+            <a href="#pricing" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Тарифы</a>
+            <a href="#about" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Почему я?</a>
+            <a href="#testimonials" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Отзывы</a>
+            <a href="#contact" class="block py-3 px-6 text-gray-300 hover:bg-gray-800">Контакты</a>
+            <div class="p-4">
+                <a href="#contact" class="w-full text-center block bg-amber-500 text-gray-900 font-bold py-3 px-5 rounded-lg hover:bg-amber-400">
+                    Обсудить проект
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="relative py-24 md:py-40 overflow-hidden">
+             <div class="absolute inset-0 bg-grid-gray-900 [mask-image:linear-gradient(to_bottom,white_5%,transparent_100%)]"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Text Content -->
+                    <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+                            Создам <span class="text-gradient">эффективную</span> команду и выстрою процессы
+                        </h1>
+                        <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
+                            Услуги коуча по найму и управлению командой, Project и Product Manager для вашего бизнеса.
+                        </p>
+                        <a href="#contact" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-amber-400 transition-all hover:scale-105 inline-block">
+                            Получить консультацию
+                        </a>
+                    </div>
+                    <!-- Video -->
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="rounded-full shadow-2xl shadow-amber-900/20 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden relative bg-gray-900">
+                            <video class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-70" 
+                                   src="https://webregul.github.io/lalalend/video.mp4" 
+                                   autoplay 
+                                   loop 
+                                   muted 
+                                   playsinline>
+                                [Ваш браузер не поддерживает тег video.]
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Чем я могу помочь Вашему Бизнесу?</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">От стратегии и аналитики до маркетинга и монетизации — полный цикл управления вашим проектом.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card -->
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-800 mb-6 transition-all duration-300 group-hover:bg-amber-500/10">
+                            <svg class="w-8 h-8 text-amber-400 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Стратегия и аналитика</h3>
+                        <ul class="space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Определение видения продукта</li>
+                            <li>Анализ конкурентов и рынка</li>
+                            <li>Формирование Product Roadmap</li>
+                            <li>Расчет Unit-экономики</li>
+                        </ul>
+                    </div>
+                    <!-- Other service cards follow the same structure -->
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-800 mb-6 transition-all duration-300 group-hover:bg-amber-500/10">
+                            <svg class="w-8 h-8 text-amber-400 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Разработка и управление</h3>
+                        <ul class="space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Написание PRD</li>
+                            <li>Приоритизация гипотез (RICE, ICE)</li>
+                            <li>Управление бэклогом (Agile, Scrum)</li>
+                            <li>Тестирование гипотез (A/B, MVP)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-800 mb-6 transition-all duration-300 group-hover:bg-amber-500/10">
+                           <svg class="w-8 h-8 text-amber-400 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">UX/UI и улучшение продукта</h3>
+                        <ul class="space-y-2 text-gray-400 list-disc list-inside">
+                            <li>Проведение юзабилити-тестов</li>
+                            <li>Оптимизация воронки продаж</li>
+                            <li>Анализ heatmaps (Hotjar)</li>
+                            <li>Улучшение пользовательского опыта</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Выберите подходящий формат</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">Гибкие тарифы для решения задач вашего бизнеса на любом этапе.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8">
+                    <!-- Pricing Card 1: Минимум -->
+                    <div class="bg-gray-900 w-full max-w-md p-8 rounded-2xl border border-gray-800 transition-all duration-300 hover:border-gray-700 hover:scale-105">
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Минимум</h3>
+                        <p class="text-gray-500 text-center mb-6">Аудит и рекомендации</p>
+                        <p class="text-4xl font-bold text-white text-center mb-6">от 300 000₽<span class="text-lg font-normal text-gray-400">/мес</span></p>
+                        <ul class="space-y-4 text-gray-400 mb-8">
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Аудит процессов и документооборота</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Анализ отношений в команде</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Рекомендательные встречи</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Шаблоны документов</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>15-20 часов в месяц</li>
+                        </ul>
+                        <a href="#contact" class="w-full block text-center bg-gray-800 text-white border-2 border-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-700 hover:border-gray-600 transition-colors">Заказать аудит</a>
+                    </div>
+
+                    <!-- Pricing Card 2: Комфорт (Recommended) -->
+                    <div class="relative bg-gray-900 w-full max-w-md p-8 rounded-2xl border-2 border-amber-500 recommended-card-glow transform scale-105">
+                        <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase">Рекомендуем</span>
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Комфорт</h3>
+                        <p class="text-gray-500 text-center mb-6">Комплексная поддержка</p>
+                        <p class="text-4xl font-bold text-white text-center mb-6">от 500 000₽<span class="text-lg font-normal text-gray-400">/мес</span></p>
+                        <ul class="space-y-4 text-gray-400 mb-8">
+                            <li class="flex items-start font-bold text-white"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Все услуги тарифа "Минимум"</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Обучение управленцев найму</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Помощь в проведении встреч</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Помощь в ведении заказчиков</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>30-40 часов в месяц</li>
+                        </ul>
+                        <a href="#contact" class="w-full block text-center bg-amber-500 text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-amber-400 transition-colors">Начать сотрудничество</a>
+                    </div>
+
+                    <!-- Pricing Card 3: Максимум -->
+                    <div class="bg-gray-900 w-full max-w-md p-8 rounded-2xl border border-gray-800 transition-all duration-300 hover:border-gray-700 hover:scale-105">
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Максимум</h3>
+                        <p class="text-gray-500 text-center mb-6">Полное погружение</p>
+                        <p class="text-4xl font-bold text-white text-center mb-6">от 900 000₽<span class="text-lg font-normal text-gray-400">/мес</span></p>
+                        <ul class="space-y-4 text-gray-400 mb-8">
+                            <li class="flex items-start font-bold text-white"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Все услуги тарифа "Комфорт"</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Круглосуточная поддержка 24/7</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Любые вопросы вне графика</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">&#10003;</span>Полная вовлеченность</li>
+                        </ul>
+                        <a href="#contact" class="w-full block text-center bg-gray-800 text-white border-2 border-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-700 hover:border-gray-600 transition-colors">Получить максимум</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                     <!-- Video -->
+                    <div class="md:w-1/2 flex justify-center">
+                         <div class="rounded-xl shadow-xl w-full max-w-md object-cover border-4 border-gray-800 overflow-hidden aspect-video bg-gray-900">
+                             <video class="w-full h-full object-cover" 
+                                   src="https://webregul.github.io/lalalend/v2.mp4" 
+                                   autoplay 
+                                   loop 
+                                   muted 
+                                   playsinline>
+                                [Ваш браузер не поддерживает тег video.]
+                            </video>
+                         </div>
+                    </div>
+                    <!-- Text Content -->
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Почему мне можно доверить проект?</h2>
+                        <p class="text-gray-400 mb-6">
+                            У меня существенный опыт в управлении проектами, как с нуля так и действующих. Легко нахожу общий язык с абсолютно разными людьми. В работе полагаюсь на аналитику, объективно смотрю на задачи бизнеса и нахожу эффективные решения.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><svg class="w-6 h-6 text-amber-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Создам настоящую команду из разрозненных групп.</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-amber-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Научу команду выстраивать отношения с заказчиками.</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-amber-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Отвечаю за обязательства свои и командные.</li>
+                        </ul>
+                        <blockquote class="border-l-4 border-amber-500 pl-6 py-2 bg-gray-900 rounded-r-lg">
+                            <p class="text-lg italic text-gray-300">"Заберу скучные однообразные задачи и помогу с удовольствием заниматься любимым делом!"</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Что говорят клиенты</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">Результаты, которые говорят сами за себя.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <p class="text-gray-300 mb-6">"Людмила полностью преобразила наши процессы. Благодаря ей мы сократили время на разработку фич на 30% и наконец-то наладили коммуникацию между отделами. Это лучший специалист по управлению, с которым я работал."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/d1d5db?text=АИ" alt="[Фотография клиента]">
+                            <div>
+                                <p class="font-bold text-white">Алексей Иванов</p>
+                                <p class="text-sm text-gray-500">CEO, TechStroy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <p class="text-gray-300 mb-6">"Процесс найма всегда был для нас головной болью. Людмила помогла нам не только найти трех ключевых разработчиков за месяц, но и выстроила систему их адаптации. Команда стала работать как единый механизм."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/d1d5db?text=ЕС" alt="[Фотография клиента]">
+                            <div>
+                                <p class="font-bold text-white">Елена Смирнова</p>
+                                <p class="text-sm text-gray-500">HR Director, FinCore</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 3 -->
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <p class="text-gray-300 mb-6">"Мы пришли с идеей, а ушли с готовым MVP и четким планом развития на год вперед. Аудит и стратегия, предложенные Людмилой, сэкономили нам месяцы работы и огромный бюджет. Настоятельно рекомендую!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/d1d5db?text=ДП" alt="[Фотография клиента]">
+                            <div>
+                                <p class="font-bold text-white">Дмитрий Петров</p>
+                                <p class="text-sm text-gray-500">Founder, StartUp Hub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="bg-gray-900 rounded-2xl p-10 md:p-16 text-center border border-gray-800 shadow-2xl shadow-black/30">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Давайте обсудим ваш проект!</h2>
+                    <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">Оставьте заявку, и я свяжусь с вами в ближайшее время для обсуждения деталей и поиска лучших решений для вашего бизнеса.</p>
+                    
+                    <form class="max-w-xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="Ваше имя" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all">
+                            <input type="email" placeholder="Ваш Email" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all">
+                        </div>
+                        <textarea placeholder="Краткое описание вашего проекта/задачи" rows="4" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"></textarea>
+                        <button type="submit" class="w-full bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-amber-400 transition-all hover:scale-105">
+                            Отправить заявку
+                        </button>
+                    </form>
+                    <p class="text-gray-500 mt-6">Или напишите мне напрямую: <a href="mailto:Antonenkoludmil@yandex.ru" class="text-amber-400 hover:underline">Antonenkoludmil@yandex.ru</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-lg font-bold text-white mb-4 md:mb-0">Людмила Антоненко</p>
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Услуги</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-amber-400 transition-colors">Тарифы</a>
+                    <a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">Почему я?</a>
+                </div>
+                <p class="text-gray-500 text-sm">&copy; 2025 Людмила Антоненко. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Animations -->
+    <script>
+        // Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
