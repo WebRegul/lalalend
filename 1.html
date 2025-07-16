@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Людмила Антоненко - Коуч по найму и управлению командой</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #f39c12;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: #0f0f1e;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero секция */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(103, 126, 234, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(103, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Секция услуг */
+        .services {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Тарифы */
+        .pricing {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+        }
+
+        .pricing .section-title {
+            color: var(--text-light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: transparent;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--accent-color);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            color: var(--text-light);
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        /* О себе */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: fadeInUp 1s ease;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* CTA секция */
+        .cta {
+            padding: 5rem 0;
+            background: var(--gradient-1);
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-form button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Футер */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        /* Плавающие элементы */
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Плавающие элементы фона -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Навигация -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">ЛА</a>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#pricing">Тарифы</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Людмила Антоненко</h1>
+            <h2>Коуч по найму и управлению командой</h2>
+            <p style="color: #ecf0f1; font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Project Manager • Product Manager • Эксперт по командной эффективности
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Обсудить проект</a>
+                <a href="#services" class="btn btn-secondary">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Чем я могу помочь вашему бизнесу?</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Стратегия и аналитика</h3>
+                    <ul>
+                        <li>Определение видения продукта</li>
+                        <li>Анализ конкурентов и трендов</li>
+                        <li>Product Roadmap</li>
+                        <li>Расчет Unit-экономики</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Управление продуктом</h3>
+                    <ul>
+                        <li>Написание PRD</li>
+                        <li>Приоритизация задач</li>
+                        <li>Управление бэклогом</li>
+                        <li>A/B-тесты и MVP</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UX/UI оптимизация</h3>
+                    <ul>
+                        <li>Юзабилити-тесты</li>
+                        <li>Оптимизация воронки</li>
+                        <li>Анализ heatmaps</li>
+                        <li>Улучшение продукта</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Командная работа</h3>
+                    <ul>
+                        <li>Взаимодействие с командой</li>
+                        <li>Презентации стейкхолдерам</li>
+                        <li>Найм и адаптация</li>
+                        <li>Командное взаимодействие</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Маркетинг и монетизация</h3>
+                    <ul>
+                        <li>Ценовая стратегия</li>
+                        <li>Реферальные программы</li>
+                        <li>Анализ рекламных каналов</li>
+                        <li>Повышение конверсии</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Тарифы на услуги</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Минимум</h3>
+                    <div class="price">от 300.000₽</div>
+                    <p style="color: #ecf0f1; opacity: 0.8;">в месяц</p>
+                    <ul class="pricing-features">
+                        <li>Аудит процессов и документооборота</li>
+                        <li>Анализ командных взаимоотношений</li>
+                        <li>Рекомендательные встречи</li>
+                        <li>Шаблоны документов</li>
+                        <li>15-20 часов в месяц</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Выбрать тариф</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Комфорт</h3>
+                    <div class="price">от 500.000₽</div>
+                    <p style="color: #ecf0f1; opacity: 0.8;">в месяц</p>
+                    <ul class="pricing-features">
+                        <li>Все услуги тарифа "Минимум"</li>
+                        <li>Обучение управленцев найму</li>
+                        <li>Помощь в проведении встреч</li>
+                        <li>Ведение заказчиков</li>
+                        <li>30-40 часов в месяц</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Выбрать тариф</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Максимум</h3>
+                    <div class="price">от 900.000₽</div>
+                    <p style="color: #ecf0f1; opacity: 0.8;">в месяц</p>
+                    <ul class="pricing-features">
+                        <li>Все услуги предыдущих тарифов</li>
+                        <li>Круглосуточная поддержка 24/7</li>
+                        <li>Решение любых вопросов</li>
+                        <li>Без выходных и праздников</li>
+                        <li>Полное погружение в проект</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Выбрать тариф</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О себе -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Почему мне можно доверить проект?</h2>
+                    <p>
+                        У меня существенный опыт в управлении проектами, как с нуля так и действующих. 
+                        Легко нахожу общий язык с абсолютно разными людьми.
+                    </p>
+                    <p>
+                        В работе полагаюсь на аналитику, объективно смотрю на задачи бизнеса и нахожу 
+                        эффективные решения. Могу создать настоящую команду из разрозненных рабочих групп.
+                    </p>
+                    <p>
+                        Не стыжусь чего-то не знать, с интересом изучаю новую информацию. Развиваюсь 
+                        в сфере не только IT, но и бизнес-аналитики.
+                    </p>
+                    <p style="font-weight: bold; color: var(--accent-color);">
+                        Заберу скучные однообразные задачи и помогу с удовольствием заниматься любимым делом!
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div style="background: var(--gradient-1); padding: 3rem; border-radius: 20px; text-align: center; color: white;">
+                        <h3 style="font-size: 2rem; margin-bottom: 1rem;">Ваш надежный партнер</h3>
+                        <p style="font-size: 1.2rem;">в создании эффективных команд и успешных продуктов</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Давайте обсудим, чем мы можем быть полезны друг другу</h2>
+            <p>Готова помочь вашему бизнесу выйти на новый уровень</p>
+            <div class="contact-form">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Телефон" required>
+                <button type="submit" onclick="alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.')">Отправить заявку</button>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.9;">
+                Или напишите мне напрямую: <a href="mailto:Antonenkoludmil@yandex.ru" style="color: white; text-decoration: underline;">Antonenkoludmil@yandex.ru</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Людмила Антоненко. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Изменение навигации при скролле
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Анимация при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за элементами
+        document.querySelectorAll('.service-card, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
